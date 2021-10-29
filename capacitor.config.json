@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ionetflix",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

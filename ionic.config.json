@@ -1,0 +1,7 @@
+{
+  "name": "ionetflix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

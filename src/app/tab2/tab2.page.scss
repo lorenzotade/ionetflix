@@ -1,0 +1,25 @@
+.cards-container {
+  width: 100%;
+}
+
+ion-card {
+  width: 41%;
+  min-height: 200px;
+  display: inline-block;
+  ion-card-content {
+    position: relative;
+    ion-card-title {
+      font-size: 1rem;
+    }
+    ion-card-subtitle {
+      font-size: .7rem;
+    }
+  }
+  ion-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 18px;
+    font-size: 1.3rem;
+  }
+  
+}

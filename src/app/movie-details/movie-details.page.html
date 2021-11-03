@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button routerLink="/tabs/tab1">Go Back</ion-button>
+
+<ion-content *ngIf="movie">
+  <ion-card>
+    
+    <ion-img *ngIf="movie.poster_path" [src]="imgPath + movie.poster_path"></ion-img>
+
+    <ion-card-content>
+      <ion-card-title>{{movie.original_title}}</ion-card-title>
+      <ion-card-subtitle>{{movie.tagline}}</ion-card-subtitle>
+      <ion-badge>{{movie.vote_average ? movie.vote_average : 'N.D.'}} / 10</ion-badge>
+    </ion-card-content>
+    <ion-card-content *ngIf="movie.overview">
+      {{movie.overview}}
+    </ion-card-content>
+    <h4>Other Info</h4>
+    <ion-card-content>
+      <span>Genres:</span>
+      <ul>
+        <li *ngFor="let genre of movie.genres">{{genre.name}}</li>
+      </ul>
+    </ion-card-content>
+    <h4>Production</h4>
+    <ion-card-content>
+      <span >Budget: {{movie.budget}}</span>
+      <span>Revenue: {{movie.revenue}}</span>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

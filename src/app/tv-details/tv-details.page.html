@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tv-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button routerLink="/tabs/tab2">Go Back</ion-button>
+
+<ion-content *ngIf="tvSeries">
+  <ion-card>
+    
+    <ion-img *ngIf="tvSeries.poster_path" [src]="imgPath + tvSeries.poster_path"></ion-img>
+
+    <ion-card-content>
+      <ion-card-title>{{tvSeries.original_name}}</ion-card-title>
+      <ion-card-subtitle>{{tvSeries.tagline}}</ion-card-subtitle>
+      <ion-badge>{{tvSeries.vote_average ? tvSeries.vote_average : 'N.D.'}} / 10</ion-badge>
+    </ion-card-content>
+    <ion-card-content *ngIf="tvSeries.overview">
+      {{tvSeries.overview}}
+    </ion-card-content>
+    <h4>Other Info</h4>
+    <ion-card-content>
+      <span>Genres:</span>
+      <ul>
+        <li *ngFor="let genre of tvSeries.genres">{{genre.name}}</li>
+      </ul>
+    </ion-card-content>
+    <h4>Production</h4>
+    <ion-card-content>
+      <span >N. of Seasons: {{tvSeries.number_of_seasons}}</span>
+      <span>N. of Episodes: {{tvSeries.number_of_episodes}}</span>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

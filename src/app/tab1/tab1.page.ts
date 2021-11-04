@@ -1,4 +1,4 @@
-import { TrendingMovie } from '../interfaces/TrendingMovie';
+import { PreviewMovie } from '../interfaces/PreviewMovie';
 import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { NavigationExtras, Router } from '@angular/router';
 export class Tab1Page implements OnInit {
 
   imgPath = 'https://image.tmdb.org/t/p/original';
-  trendingMovies: TrendingMovie[] = [];
+  trendingMovies: PreviewMovie[] = [];
   page: number;
 
   constructor(
@@ -20,10 +20,13 @@ export class Tab1Page implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.getTrendingMovies();
+
   }
 
   getTrendingMovies() {
+
     this.movieService.getTrendingMovies()
       .subscribe((res: any) => {
         this.trendingMovies = res.results;
@@ -34,11 +37,14 @@ export class Tab1Page implements OnInit {
           }
         });
       });
+
   }
 
   goToMovie(id: any) {
+
     const data: NavigationExtras = id;
     this.router.navigate(['/movie-details'], data);
+
   }
 
 }

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Search
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,32 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <form #f="ngForm" (ngSubmit)="searchMovie(f.value)">
+      <ion-item>
+        <ion-input placeholder="Insert a name..." [(ngModel)]="query" name="query"></ion-input>
+      </ion-item>
+    </form>
+
+    <div class="cards-container">
+      <ion-card
+        *ngFor="let movie of searchedMovies"
+        (click)="goToMovie(movie.id)"
+        class="movie"
+      >
+        <ion-img [src]="imgPath + movie.backdrop_path"></ion-img>
+        <ion-card-content>
+          <ion-card-title>{{movie.original_title}}</ion-card-title>
+          <ion-card-subtitle>{{movie.release_date | date: 'dd MMM YYYY'}}</ion-card-subtitle>
+        </ion-card-content>
+
+        <ion-icon name="play-circle-outline" color="danger"></ion-icon>
+      </ion-card>
+    </div>
+  </ion-card>
+
 </ion-content>

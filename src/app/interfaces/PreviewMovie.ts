@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface TrendingMovie {
+export interface PreviewMovie {
   original_title: string;
   poster_path: string;
   video: boolean;
